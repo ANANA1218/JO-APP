@@ -5,8 +5,13 @@
   <ul>
     {% for sport in sports %}
       <li>
-        <a href="/sports/{{ sport.id }}">{{ sport.nom }}</a>
+        <a href="/sport/{{ sport.id }}">{{ sport.nom }}</a>
+        <a href="/sports/{{ sport.id }}/update">Update</a>
+         <form action="/sports/{{ sport.id }}/delete" method="POST">
+          <button type="submit">Delete</button>
+        </form>
       </li>
     {% endfor %}
   </ul>
+   <a href="/sports/create">Ajouter un sport</a>
 {% endblock %}

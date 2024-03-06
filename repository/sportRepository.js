@@ -38,17 +38,18 @@ const SportRepository = {
   create: (sport) => {
     return new Promise((resolve, reject) => {
       db_connection().then(pool => {
-        pool.query('INSERT INTO sports SET ?', sport, (err, results) => {
+        pool.query('INSERT INTO sports (nom) VALUES (?)', [sport.nom], (err, results) => {
           if (err) {
             reject(err);
           } else {
             resolve(results.insertId);
+            console.log(results.insertId);
           }
         });
       }).catch(err => reject(err));
     });
   },
-
+  
   update: (id, sportData) => {
     return new Promise((resolve, reject) => {
       db_connection().then(pool => {

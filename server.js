@@ -1,12 +1,12 @@
-//import des packages
+
 import express from 'express';
 import http from 'node:http';
 import nunjuks from "nunjucks";
 import sportRouter from './router/sportRoutes.js';
 import epreurveRouter from './router/EpreuveRoutes.js';
+import bodyParser from 'body-parser';
 
 
-//instancier express et un routeur
 const app = express();
 const router = express.Router();
 
@@ -14,6 +14,9 @@ const router = express.Router();
 app.use(router);
 app.use(express.json());
 app.use(express.static("public")); 
+
+app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.set('view engine', 'njk');
 

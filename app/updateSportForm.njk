@@ -1,0 +1,11 @@
+{% extends "base.njk" %}
+
+{% block content %}
+  <h1>Update Sport</h1>
+  <form action="/sports/{{ sport.id }}/update" method="POST">
+  <label for="name">Sport Name:</label>
+  <input type="text" id="name" name="name" value="{{ sport.nom }}" required>
+  <button type="submit">Update</button>
+</form>
+
+{% endblock %}
