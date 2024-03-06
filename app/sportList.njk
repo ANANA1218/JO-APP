@@ -1,0 +1,12 @@
+{% extends "base.njk" %}
+
+{% block content %}
+  <h1>List of Sports</h1>
+  <ul>
+    {% for sport in sports %}
+      <li>
+        <a href="/sports/{{ sport.id }}">{{ sport.nom }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

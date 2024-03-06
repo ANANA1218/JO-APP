@@ -13,3 +13,4 @@ const db_connection = async() => {
 
     })
 }
+export default db_connection;
