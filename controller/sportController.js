@@ -10,9 +10,13 @@ export const listSports = async (req, res) => {
   }
 };
 
-export const getSport = (req, res) => {
-  const sportId = req.params.id;
-  const sport = SportService.getSportById(sportId);
-  res.render('sportDetails', { sport });
+export const getSport = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const sport = await SportService.getSportById(id);
+    res.render('../app/sportDetail.njk', { sport });
+  } catch (error) {
+    // Gérer l'erreur, par exemple en renvoyant une réponse d'erreur
+    res.status(404).send("Le sport demandé n'a pas été trouvé.");
+  }
 };
-
