@@ -1,7 +1,7 @@
 
 import db_connection from '../service/db_connection.js';
 
-const epreuveRepository = {
+const EpreuveRepository = {
   getAll: () => {
     return new Promise((resolve, reject) => {
       db_connection().then(pool => {
@@ -78,4 +78,4 @@ const epreuveRepository = {
   }
 };
 
-export default SportRepository;
+export default EpreuveRepository;

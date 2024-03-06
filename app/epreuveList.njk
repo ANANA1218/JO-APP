@@ -1,0 +1,12 @@
+{% extends "base.njk" %}
+
+{% block content %}
+  <h1>List of Epreuves</h1>
+  <ul>
+    {% for epreuve in epreuves %}
+      <li>
+        <a href="/epreuves/{{epreuve.id }}">{{ epreuve.nom }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

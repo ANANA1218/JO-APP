@@ -3,6 +3,8 @@ import express from 'express';
 import http from 'node:http';
 import nunjuks from "nunjucks";
 import sportRouter from './router/sportRoutes.js';
+import epreurveRouter from './router/EpreuveRoutes.js';
+
 
 //instancier express et un routeur
 const app = express();
@@ -24,6 +26,7 @@ nunjuks.configure('app', {
 
 
  router.use(sportRouter);
+ router.use(epreurveRouter);
 
 
 const server = http.createServer(app);

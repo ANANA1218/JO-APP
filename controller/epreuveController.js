@@ -14,7 +14,7 @@ export const getEpreuve = async (req, res) => {
   const { id } = req.params;
   try {
     const epreuve = await EpreuveService.getEpreuveById(id);
-    res.render('../app/sportDetail.njk', { epreuve });
+    res.render('../app/epreuveDetail.njk', { epreuve });
   } catch (error) {
     // Gérer l'erreur, par exemple en renvoyant une réponse d'erreur
     res.status(404).send("Le epreuve demandé n'a pas été trouvé.");

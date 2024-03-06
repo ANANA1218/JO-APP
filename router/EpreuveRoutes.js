@@ -5,6 +5,6 @@ import * as EpreuveController from '../controller/epreuveController.js';
 const epreurveRouter = express.Router();
 
 epreurveRouter.get('/epreuves', EpreuveController.listEpreuves);
-epreurveRouter.get('/epreuve/:id', EpreuveController.getSport);
+epreurveRouter.get('/epreuves/:id', EpreuveController.getEpreuve);
 
 export default epreurveRouter;
