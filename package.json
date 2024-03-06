@@ -37,6 +37,7 @@
     "has-proto": "^1.0.3",
     "has-symbols": "^1.0.3",
     "hasown": "^2.0.1",
+    "http": "^0.0.1-security",
     "http-errors": "^2.0.0",
     "iconv-lite": "^0.4.24",
     "inherits": "^2.0.4",
@@ -48,6 +49,7 @@
     "mime-db": "^1.52.0",
     "mime-types": "^2.1.35",
     "ms": "^2.0.0",
+    "mysql2": "^3.9.2",
     "negotiator": "^0.6.3",
     "nunjucks": "^3.2.4",
     "object-inspect": "^1.13.1",
@@ -73,6 +75,8 @@
     "vary": "^1.1.2"
   },
   "scripts": {
+    "dev": "node --env-file=.env.dev --watch index.js",
+    "start": "node --env-file=.env.dev --watch index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
