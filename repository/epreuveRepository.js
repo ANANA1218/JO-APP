@@ -38,7 +38,7 @@ const EpreuveRepository = {
   create: (epreuve) => {
     return new Promise((resolve, reject) => {
       db_connection().then(pool => {
-        pool.query('INSERT INTO epreuves SET ?', epreuve, (err, results) => {
+        pool.query('INSERT INTO epreuves (nom, sport_id) VALUES (?, ?)', [epreuve.nom, epreuve.sport_id], (err, results) => {
           if (err) {
             reject(err);
           } else {
@@ -48,6 +48,7 @@ const EpreuveRepository = {
       }).catch(err => reject(err));
     });
   },
+  
 
   update: (id, epreuveData) => {
     return new Promise((resolve, reject) => {

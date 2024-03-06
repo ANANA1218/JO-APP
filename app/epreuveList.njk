@@ -5,8 +5,14 @@
   <ul>
     {% for epreuve in epreuves %}
       <li>
-        <a href="/epreuves/{{epreuve.id }}">{{ epreuve.nom }}</a>
+        <a href="/epreuve/{{epreuve.id }}">{{ epreuve.nom }}</a>
+       <a href="/epreuves/{{ epreuve.id }}/update">Update</a>
+         <form action="/epreuves/{{ epreuve.id }}/delete" method="POST">
+          <button type="submit">Delete</button>
+        </form>
+
       </li>
     {% endfor %}
   </ul>
+     <a href="/epreuves/create">Ajouter une epreuve</a>
 {% endblock %}
