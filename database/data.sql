@@ -10,7 +10,7 @@ INSERT INTO Sports (nom) VALUES ('Escalade');
 INSERT INTO Sports (nom) VALUES ('Judo');
 INSERT INTO Sports (nom) VALUES ('Volleyball');
 INSERT INTO Sports (nom) VALUES ('Boxe');
-INSERT INTO Sports (nom) VALUES ('Tir a l\'arc');
+INSERT INTO Sports (nom) VALUES ("Tir a l'arc");
 
 INSERT INTO Epreuves (nom, sport_id) VALUES ('100 mètres', 1);
 INSERT INTO Epreuves (nom, sport_id) VALUES ('Marathon', 1);
@@ -141,5 +141,5 @@ INSERT INTO Athletes (nom, prenom, pays, medaille_id, epreuve_id) VALUES ('Boll'
 INSERT INTO Athletes (nom, prenom, pays, medaille_id, epreuve_id) VALUES ('Feng', 'Tianwei', 'Singapour',  3, 14);
 INSERT INTO Athletes (nom, prenom, pays, medaille_id, epreuve_id) VALUES ('Ovtcharov', 'Dimitrij', 'Allemagne',  3, 13);
 
-INSERT INTO Users (nom, prenom, pays, role) VALUES ('Smith', 'Alice', 'Royaume-Uni', 'admin');
-INSERT INTO Users (nom, prenom, pays) VALUES ('Dubois', 'Élise', 'France');
+INSERT INTO Users (nom, prenom, pays, role, email, password) VALUES ('Smith', 'Alice', 'Royaume-Uni', 'admin', 'admin@admin.com', 'admin');
+INSERT INTO Users (nom, prenom, pays, role, email, password) VALUES ('Dubois', 'Élise', 'France', 'admin', 'admin@admin.fr', 'admin');

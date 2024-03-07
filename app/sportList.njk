@@ -1,17 +1,24 @@
 {% extends "base.njk" %}
 
 {% block content %}
-  <h1>List of Sports</h1>
-  <ul>
-    {% for sport in sports %}
-      <li>
-        <a href="/sport/{{ sport.id }}">{{ sport.nom }}</a>
-        <a href="/sports/{{ sport.id }}/update">Update</a>
-         <form action="/sports/{{ sport.id }}/delete" method="POST">
-          <button type="submit">Delete</button>
-        </form>
-      </li>
-    {% endfor %}
-  </ul>
-   <a href="/sports/create">Ajouter un sport</a>
+  <div class="container">
+      <h1>List of Sports</h1>
+      <ul>
+        {% for sport in sports %}
+          <li>
+            <a href="/sport/{{ sport.id }}">{{ sport.nom }}</a>
+            <a href="/sports/{{ sport.id }}/update">Update</a>
+            <form action="/sports/{{ sport.id }}/delete" method="POST">
+              <button type="submit">Delete</button>
+            </form>
+          </li>
+        {% endfor %}
+      </ul>
+      <a href="/sports/create">Ajouter un sport</a>
+  </div>
+{% endblock %}
+
+
+{% block styles %}
+  <link rel="stylesheet" type="text/css" href="/css/createathlete.css">
 {% endblock %}

@@ -1,18 +1,25 @@
 {% extends "base.njk" %}
 
-{% block content %}
-  <h1>ADD nex athelete</h1>
-  <form action="/athletes/create" method="post" enctype="application/x-www-form-urlencoded">
-    <label for="nom">Nom:</label>
-    <input type="text" id="nom" name="nom" required>
-    <label for="prenom">Prenom:</label>
-    <input type="text" id="prenom" name="prenom" required>
-    <label for="pays">Pays:</label>
-    <input type="text" id="pays" name="pays" required>
-    <label for="medaille_id">Medaille ID:</label>
-    <input type="text" id="medaille_id" name="medaille_id" required>
-    <label for="epreuve_id">Epreuve ID:</label>
-    <input type="text" id="epreuve_id" name="epreuve_id" required>
-    <button type="submit">Create Epreuve</button>
-  </form>
+{% block styles %}
+  <link rel="stylesheet" type="text/css" href="/css/createathelete.css">
 {% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1>Ajouter un nouvel athlète</h1>
+    <form action="/athletes/create" method="post" enctype="application/x-www-form-urlencoded">
+      <label for="nom">Nom:</label>
+      <input type="text" id="nom" name="nom" required>
+      <label for="prenom">Prenom:</label>
+      <input type="text" id="prenom" name="prenom" required>
+      <label for="pays">Pays:</label>
+      <input type="text" id="pays" name="pays" required>
+      <label for="medaille_id">Medaille ID:</label>
+      <input type="text" id="medaille_id" name="medaille_id" required>
+      <label for="epreuve_id">Epreuve ID:</label>
+      <input type="text" id="epreuve_id" name="epreuve_id" required>
+      <button type="submit">Créer Athlète</button>
+    </form>
+  </div>
+{% endblock %}
+

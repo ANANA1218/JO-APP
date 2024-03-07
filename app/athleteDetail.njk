@@ -1,11 +1,18 @@
 {% extends "base.njk" %}
 
+{% block styles %}
+  <link rel="stylesheet" type="text/css" href="/css/athlete.css">
+{% endblock %}
+
+
 {% block content %}
-  <h1>Détails de l'athlete</h1>
-  <div>
-    <p><strong>Nom:</strong> {{ athlete.nom }}</p>
-    <p><strong>Prenom:</strong> {{ athlete.prenom }}</p>
-    <p><strong>pays:</strong> {{ athlete.pays }}</p>
-    
+ <div class="container">
+    <h1>Détails de l'athlète</h1>
+    <div>
+      <p><strong>Nom :</strong> {{ athlete.nom }}</p>
+      <p><strong>Prénom :</strong> {{ athlete.prenom }}</p>
+      <p><strong>Pays :</strong> {{ athlete.pays }}</p>
+    </div>
   </div>
 {% endblock %}
+
