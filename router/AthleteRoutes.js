@@ -23,4 +23,7 @@ athleteRouter.get('/athletes/:id/update', AthleteController.getUpdateAthleteForm
 athleteRouter.post('/athletes/:id/update', AthleteController.updateAthlete);
 
 athleteRouter.post('/athletes/:id/delete', AthleteController.deleteAthlete);
+
+athleteRouter.get('/athlete', AthleteController.listAthletesMedail);
+
 export default athleteRouter;

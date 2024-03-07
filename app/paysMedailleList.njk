@@ -1,0 +1,23 @@
+{% extends "base.njk" %}
+
+{% block content %}
+  <h1>Liste des sports</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Nom du Pays</th>
+        <th>Medaille</th>
+        <th>Epreuve</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for pays in pays %}
+                <tr>
+                    <td>{{ pays.nom }}</td>
+                    <td>{{ pays.medaille }}</td>
+                    <td>{{ pays.epreuve }}</td>
+                </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

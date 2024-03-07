@@ -35,6 +35,7 @@ CREATE TABLE Pays (
     epreuve_id INT, FOREIGN KEY (epreuve_id) REFERENCES Epreuves(id)
 );
 
+
 CREATE TABLE Users (
     id INT PRIMARY KEY AUTO_INCREMENT,
 	email VARCHAR(255) NOT NULL,

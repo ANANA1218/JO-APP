@@ -82,3 +82,14 @@ export const deleteAthlete = (req, res) => {
       res.status(500).send('Erreur lors de la suppression de l\'épreuve');
     });
 };
+
+
+
+export const listAthletesMedail = async (req, res) => {
+  try {
+    const athletes = await AthleteService.getAllWithMedalsAndEvents();
+    res.render('../app/athleteMedailleList.njk', { athletes });
+  } catch (error) {
+    res.status(500).send("Une erreur s'est produite lors de la récupération des sports.");
+  }
+};

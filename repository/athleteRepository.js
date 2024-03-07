@@ -63,6 +63,20 @@ const AthleteRepository = {
       }).catch(err => reject(err));
     });
   },
+  
+  getAllWithMedalsAndEvents: () => {
+    return new Promise((resolve, reject) => {
+      db_connection().then(pool => {
+        pool.query('SELECT Athletes.nom, Athletes.prenom, Medailles.nom AS medaille, Epreuves.nom AS epreuve FROM Athletes INNER JOIN Medailles ON Athletes.medaille_id = Medailles.id INNER JOIN Epreuves ON Athletes.epreuve_id = Epreuves.id', (err, results) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(results);
+          }
+        });
+      }).catch(err => reject(err));
+    });
+  },
 
   delete: (id) => {
     return new Promise((resolve, reject) => {
@@ -78,5 +92,6 @@ const AthleteRepository = {
     });
   }
 };
+
 
 export default AthleteRepository;

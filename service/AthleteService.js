@@ -6,6 +6,7 @@ const AthleteService = {
   createAthlete: (athlete) => AthleteRepository.create(athlete),
   updateAthlete: (id, athleteData) => AthleteRepository.update(id, athleteData),
   deleteAthlete: (id) => AthleteRepository.delete(id),
+  getAllWithMedalsAndEvents: () => AthleteRepository.getAllWithMedalsAndEvents(),
 };
 
 
