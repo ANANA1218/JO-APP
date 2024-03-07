@@ -1,5 +1,29 @@
-Membre du groupe: ikram kouabatti & Annabelle Bosse
+Membre du groupe: ikram kouibaati & Annabelle Bosse
 
-Ligne de commande pour demarrer le projet : 
-- npm install: pour recup les node modules 
-- npm run dev : pour demarrer le projet 
+# Projet d'authentification Node.js avec Express et Nunjucks
+
+Ce projet est une application de démonstration qui met en œuvre un système d'authentification basique en utilisant Node.js avec Express comme framework web et Nunjucks comme moteur de template.
+
+## Ligne de commande pour démarrer le projet
+
+Pour démarrer le projet, suivez ces étapes :
+
+1. **Installation des dépendances :**
+
+npm install
+
+2. **Lancement du serveur de développement :**
+
+npm run dev
+
+
+## Modèle Conceptuel de Données (MCD)
+
+image 
+
+
+N'oubliez pas d'ajuster le modèle de données en fonction des besoins spécifiques de votre application.
+
+---
+
+N'hésitez pas à contribuer, signaler des problèmes ou envoyer des demandes de fonctionnalités !
