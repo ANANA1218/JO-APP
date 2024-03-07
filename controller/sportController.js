@@ -90,3 +90,23 @@ export const deleteSport = (req, res) => {
       res.status(500).send('Erreur lors de la suppression du sport');
     });
 };
+
+
+export const listSportsPublic = async (req, res) => {
+  try {
+    const sports = await SportService.getAllSportsPublic();
+    res.render('../app/public/sportListPublic.njk', { sports });
+  } catch (error) {
+    res.status(500).send("Une erreur s'est produite lors de la récupération des sports.");
+  }
+};
+
+export const getSportPublic = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const sport = await SportService.getSportByIdPublic(id);
+    res.render('../app/public/sportDetailPublic.njk', { sport });
+  } catch (error) {
+    res.status(404).send("Le sport demandé n'a pas été trouvé.");
+  }
+};

@@ -82,3 +82,45 @@ export const deleteAthlete = (req, res) => {
       res.status(500).send('Erreur lors de la suppression de l\'épreuve');
     });
 };
+
+
+
+export const listAthletesMedail = async (req, res) => {
+  try {
+    const athletes = await AthleteService.getAllWithMedalsAndEvents();
+    res.render('../app/athleteMedailleList.njk', { athletes });
+  } catch (error) {
+    res.status(500).send("Une erreur s'est produite lors de la récupération des sports.");
+  }
+};
+
+
+export const listAthletesMedailPublic = async (req, res) => {
+  try {
+    const athletes = await AthleteService.getAllWithMedalsAndEventsPublic();
+    res.render('../app/public/athleteMedailleListPublic.njk', { athletes });
+  } catch (error) {
+    res.status(500).send("Une erreur s'est produite lors de la récupération des sports.");
+  }
+};
+
+export const listAthletesPublic = async (req, res) => {
+  try {
+    const athletes = await AthleteService.getAllAthletesPublic();
+    res.render('../app/public/athleteListPublic.njk', { athletes });
+  } catch (error) {
+ 
+    res.status(500).send("Une erreur s'est produite lors de la récupération des athletes.");
+  }
+};
+
+export const getAthletePublic = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const athlete = await AthleteService.getAthleteByIdPublic(id);
+    res.render('../app/public/athleteDetailPublic.njk', { athlete });
+  } catch (error) {
+   
+    res.status(404).send("Le athlete demandé n'a pas été trouvé.");
+  }
+};

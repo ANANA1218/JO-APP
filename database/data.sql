@@ -141,5 +141,5 @@ INSERT INTO Athletes (nom, prenom, pays, medaille_id, epreuve_id) VALUES ('Boll'
 INSERT INTO Athletes (nom, prenom, pays, medaille_id, epreuve_id) VALUES ('Feng', 'Tianwei', 'Singapour',  3, 14);
 INSERT INTO Athletes (nom, prenom, pays, medaille_id, epreuve_id) VALUES ('Ovtcharov', 'Dimitrij', 'Allemagne',  3, 13);
 
-INSERT INTO Users (nom, prenom, pays, role, email, password) VALUES ('Smith', 'Alice', 'Royaume-Uni', 'admin', 'admin@admin.com', 'admin');
-INSERT INTO Users (nom, prenom, pays, role, email, password) VALUES ('Dubois', 'Élise', 'France', 'admin', 'admin@admin.fr', 'admin');
+INSERT INTO Users (email, nom,  prenom, password, pays, role) VALUES ('smith@gmail.com','Smith', 'Alice', 'test1234','Royaume-Uni', 'admin');
+INSERT INTO Users (email, nom, prenom, password, pays, role) VALUES ('dubois@gmail.com','Dubois', 'Élise', 'test1234','France');
