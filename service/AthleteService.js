@@ -7,6 +7,10 @@ const AthleteService = {
   updateAthlete: (id, athleteData) => AthleteRepository.update(id, athleteData),
   deleteAthlete: (id) => AthleteRepository.delete(id),
   getAllWithMedalsAndEvents: () => AthleteRepository.getAllWithMedalsAndEvents(),
+
+  getAllAthletesPublic: () => AthleteRepository.getAllPublic(),
+  getAthleteByIdPublic: (id) => AthleteRepository.getByIdPublic(id),
+  getAllWithMedalsAndEventsPublic: () => AthleteRepository.getAllWithMedalsAndEventsPublic(),
 };
 
 

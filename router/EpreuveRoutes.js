@@ -26,4 +26,7 @@ epreurveRouter.post('/epreuves/:id/update', EpreuveController.updateEpreuve);
 epreurveRouter.post('/epreuves/:id/delete', EpreuveController.deleteEpreuve);
 
 
+epreurveRouter.get('/public/epreuves', EpreuveController.listEpreuvesPublic);
+epreurveRouter.get('/public/epreuve/:id', EpreuveController.getEpreuvePublic);
+
 export default epreurveRouter;

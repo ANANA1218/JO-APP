@@ -81,3 +81,25 @@ export const deleteEpreuve = (req, res) => {
       res.status(500).send('Erreur lors de la suppression de l\'épreuve');
     });
 };
+
+
+export const listEpreuvesPublic = async (req, res) => {
+  try {
+    const epreuves = await EpreuveService.getAllEpreuvesPublic();
+    res.render('../app/public/epreuveListPublic.njk', { epreuves });
+  } catch (error) {
+ 
+    res.status(500).send("Une erreur s'est produite lors de la récupération des epreuves.");
+  }
+};
+
+export const getEpreuvePublic = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const epreuve = await EpreuveService.getEpreuveByIdPublic(id);
+    res.render('../app/public/epreuveDetailPublic.njk', { epreuve });
+  } catch (error) {
+   
+    res.status(404).send("Le epreuve demandé n'a pas été trouvé.");
+  }
+};

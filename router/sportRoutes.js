@@ -23,4 +23,12 @@ sportRouter.get('/sports/:id/update', SportController.getUpdateSportForm);
 sportRouter.post('/sports/:id/update', SportController.updateSport);
 
 sportRouter.post('/sports/:id/delete', SportController.deleteSport);
+
+
+
+sportRouter.get('/public/sports', SportController.listSportsPublic);
+sportRouter.get('/public/sport/:id', SportController.getSportPublic);
+
+
+
 export default sportRouter;
