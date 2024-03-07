@@ -76,7 +76,40 @@ const EpreuveRepository = {
         });
       }).catch(err => reject(err));
     });
-  }
+  },
+  getAllPublic: () => {
+    return new Promise((resolve, reject) => {
+      db_connection().then(pool => {
+        pool.query('SELECT * FROM epreuves', (err, results) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(results);
+            console.log(results);
+          }
+        });
+      }).catch(err => reject(err));
+    });
+  },
+
+  getByIdPublic: (id) => {
+    return new Promise((resolve, reject) => {
+      db_connection().then(pool => {
+        pool.query('SELECT * FROM epreuves WHERE id = ?', [id], (err, results) => {
+          if (err) {
+            reject(err);
+          } else {
+            if (results.length === 0) {
+              reject(new Error('epreuves not found'));
+            } else {
+              resolve(results[0]);
+            }
+          }
+        });
+      }).catch(err => reject(err));
+    });
+  },
+
 };
 
 export default EpreuveRepository;

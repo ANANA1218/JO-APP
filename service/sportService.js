@@ -6,6 +6,9 @@ const SportService = {
   createSport: (sport) => SportRepository.create(sport),
   updateSport: (id, sportData) => SportRepository.update(id, sportData),
   deleteSport: (id) => SportRepository.delete(id),
+
+  getAllSportsPublic: () => SportRepository.getAllPublic(),
+  getSportByIdPublic: (id) => SportRepository.getByIdPublic(id),
 };
 
 

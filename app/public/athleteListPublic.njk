@@ -1,0 +1,12 @@
+{% extends "base.njk" %}
+
+{% block content %}
+  <h1>List of Athletes</h1>
+  <ul>
+    {% for athlete in athletes %}
+      <li>
+        <a href="/athlete/{{ athlete.id }}">{{ athlete.nom }} {{ athlete.prenom }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

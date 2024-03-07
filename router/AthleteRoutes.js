@@ -26,4 +26,9 @@ athleteRouter.post('/athletes/:id/delete', AthleteController.deleteAthlete);
 
 athleteRouter.get('/athlete', AthleteController.listAthletesMedail);
 
+
+athleteRouter.get('/public/athletes', AthleteController.listAthletesPublic);
+athleteRouter.get('/public/athlete/:id', AthleteController.getAthletePublic)
+athleteRouter.get('/public/athlete', AthleteController.listAthletesMedailPublic);
+
 export default athleteRouter;
