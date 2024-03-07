@@ -5,6 +5,7 @@ import nunjuks from "nunjucks";
 import sportRouter from './router/sportRoutes.js';
 import epreurveRouter from './router/EpreuveRoutes.js';
 import bodyParser from 'body-parser';
+import athleteRouter from './router/AthleteRoutes.js';
 
 
 const app = express();
@@ -30,6 +31,8 @@ nunjuks.configure('app', {
 
  router.use(sportRouter);
  router.use(epreurveRouter);
+ router.use(athleteRouter);
+
 
 
 const server = http.createServer(app);

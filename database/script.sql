@@ -27,6 +27,14 @@ CREATE TABLE Athletes (
     epreuve_id INT, FOREIGN KEY (epreuve_id) REFERENCES Epreuves(id)
 );
 
+CREATE TABLE Pays (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(255) NOT NULL,
+    medaille_id INT,
+    FOREIGN KEY (medaille_id) REFERENCES Medailles(id),
+    epreuve_id INT, FOREIGN KEY (epreuve_id) REFERENCES Epreuves(id)
+);
+
 CREATE TABLE Users (
     id INT PRIMARY KEY AUTO_INCREMENT,
 	email VARCHAR(255) NOT NULL,
@@ -36,3 +44,5 @@ CREATE TABLE Users (
     pays VARCHAR(255) NOT NULL,
     role VARCHAR(255) DEFAULT 'public'
 );
+
+
