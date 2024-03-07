@@ -12,12 +12,27 @@ CREATE TABLE Epreuves (
     FOREIGN KEY (sport_id) REFERENCES Sports(id)
 );
 
-CREATE TABLE DetenteursTitres (
+CREATE TABLE Medailles (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    nom VARCHAR(255) NOT NULL,
-    prenom VARCHAR(255) NOT NULL,
+    nom VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Athletes (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(255) NULL,
+    prenom VARCHAR(255) NULL,
     pays VARCHAR(255) NOT NULL,
-    titre VARCHAR(20) NOT NULL, 
-    epreuve_id INT,
-    FOREIGN KEY (epreuve_id) REFERENCES Epreuves(id)
+    medaille_id INT,
+    FOREIGN KEY (medaille_id) REFERENCES Medailles(id),
+    epreuve_id INT, FOREIGN KEY (epreuve_id) REFERENCES Epreuves(id)
+);
+
+CREATE TABLE Users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+	email VARCHAR(255) NOT NULL,
+    nom VARCHAR(255) NULL,
+    prenom VARCHAR(255) NULL,
+	password VARCHAR(255) NOT NULL,
+    pays VARCHAR(255) NOT NULL,
+    role VARCHAR(255) DEFAULT 'public'
 );
