@@ -16,7 +16,7 @@ const connexionRepository = {
   // },
   is_email_and_password_valid: (data) => {
     return new Promise((resolve, reject) => {
-        const { email, password } = data; // Destructuration des données
+        const { email, password } = data; 
         db_connection().then(db => {
             db.query('SELECT COUNT(id) AS count FROM `jo-app`.users WHERE email = ? AND password = ?', [email, password], (err, results) => {
                 if (err) {
@@ -29,24 +29,31 @@ const connexionRepository = {
     });
 },
 
-  insert_user: (data) => {
-    return new Promise((resolve, reject) => {
+insert_user: (data) => {
+ 
+  if (!data.role) {
+      data.role = 'public';
+  }
+
+  return new Promise((resolve, reject) => {
       db_connection().then(db => {
-        db.query('INSERT INTO jo-app.users (email, nom, prenom, pays, role, password ) VALUES (:email, :nom, :prenom, :pays, :role, :password )', data, (err, results) => {
-          if (err) {
-            reject(err);
-          } else {
-            resolve(results);
-          }
-        });
+          db.query('INSERT INTO users (email, nom, prenom, pays, role, password ) VALUES (?, ?, ?, ?, ?, ?)', [data.email, data.nom, data.prenom, data.pays, data.role, data.password], (err, results) => {
+              if (err) {
+                  reject(err);
+              } else {
+                  resolve(results);
+              }
+          });
       }).catch(error => reject(error));
-    });
-  },
+  });
+},
+
+
 
   is_email_already_exist: (data) => {
     return new Promise((resolve, reject) => {
       db_connection().then(db => {
-        db.query('SELECT COUNT(id) AS count FROM jo-app.users WHERE email = :email', data, (err, results) => {
+        db.query('SELECT COUNT(id) AS count FROM users WHERE email = :email', data, (err, results) => {
           if (err) {
             reject(err);
           } else {
@@ -65,9 +72,9 @@ getUserByEmail: (email) => {
           reject(err);
         } else {
           if (results.length > 0) {
-            resolve(results[0]); // Renvoyer le premier utilisateur trouvé avec cet email
+            resolve(results[0]); 
           } else {
-            resolve(null); // Aucun utilisateur trouvé avec cet email
+            resolve(null);
           }
         }
       });
