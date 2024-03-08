@@ -1,9 +1,5 @@
 {% extends "base.njk" %}
 
-{% block styles %}
-  <link rel="stylesheet" type="text/css" href="/css/athlete.css">
-{% endblock %}
-
 
 {% block content %}
  <div class="container">
@@ -14,5 +10,10 @@
       <p><strong>Pays :</strong> {{ athlete.pays }}</p>
     </div>
   </div>
+{% endblock %}
+
+{% block styles %}
+  <link rel="stylesheet" type="text/css" href="/css/detailSport.css">
+  <link rel="stylesheet" type="text/css" href="/css/header.css">
 {% endblock %}
 
