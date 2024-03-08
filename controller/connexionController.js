@@ -17,6 +17,29 @@ const inscription = (req, res) => {
     });
 };
 
+// const inscriptionPost = async (req, res) => {
+//     try {
+//         const isExist = await ConnexionService.is_email_already_exist(req.body);
+//         if (isExist) {
+//             return res.status(400).json({
+//                 status: 400,
+//                 message: 'Email already exists'
+//             });
+//         }
+//         await ConnexionService.insert_user(req.body); 
+//         return res.status(201).json({
+//             status: 201,
+//             message: 'Created'
+//         });
+//     } catch (error) {
+//         console.error(error);
+//         return res.status(500).json({
+//             status: 500,
+//             message: 'Internal Server Error'
+//         });
+//     }
+// };
+
 const inscriptionPost = async (req, res) => {
     try {
         const isExist = await ConnexionService.is_email_already_exist(req.body);
@@ -26,20 +49,22 @@ const inscriptionPost = async (req, res) => {
                 message: 'Email already exists'
             });
         }
-        await ConnexionService.insert_user(req.body); // Utilisez ConnexionService.insert_user
- // Utilisez ConnexionService.insert_user
-        return res.status(201).json({
-            status: 201,
-            message: 'Created'
-        });
+
+    
+        await ConnexionService.insert_user(req.body);
+
+        await login(req, res);
+
     } catch (error) {
-        console.error(error); // Loggez l'erreur pour le débogage
+        console.error(error);
         return res.status(500).json({
             status: 500,
             message: 'Internal Server Error'
         });
     }
 };
+
+
 
 const login = async (req, res) => {
     try {
