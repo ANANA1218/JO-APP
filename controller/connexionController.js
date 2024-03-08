@@ -26,14 +26,13 @@ const inscriptionPost = async (req, res) => {
                 message: 'Email already exists'
             });
         }
-        await ConnexionService.insert_user(req.body); // Utilisez ConnexionService.insert_user
- // Utilisez ConnexionService.insert_user
+        await ConnexionService.insert_user(req.body); 
         return res.status(201).json({
             status: 201,
             message: 'Created'
         });
     } catch (error) {
-        console.error(error); // Loggez l'erreur pour le débogage
+        console.error(error);
         return res.status(500).json({
             status: 500,
             message: 'Internal Server Error'
