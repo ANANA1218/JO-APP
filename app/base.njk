@@ -5,15 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block styles %}{% endblock %}
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/path/to/styles.css">
 </head>
 <body>
     <div id="banner">
-        <img src="/path/to/logo.png" alt="Logo">
+        <img src="/logo.png" alt="Logo">
         <nav>
             <ul>
+                <li><a href="/page1">Sports</a></li>
+                <li><a href="/page2">Athletes</a></li>
+                <li><a href="/page1">Epreuves</a></li>
                 <li><a href="/page1">Connexion</a></li>
                 <li><a href="/page2">Déconnexion</a></li>
-                <!-- Ajoutez autant de liens que nécessaire pour vos pages -->
+
+               
             </ul>
         </nav>
     </div>
@@ -23,4 +28,5 @@
     {% endblock %}
 </body>
 </html>
+
 
