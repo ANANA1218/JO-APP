@@ -51,6 +51,15 @@ const login = async (req, res) => {
             });
         }
 
+        // Récupérer l'utilisateur à partir de la base de données en utilisant l'email
+        const user = await ConnexionService.getUserByEmail(req.body.email);
+        if (!user) {
+            return res.status(401).json({
+                status: 401,
+                message: 'Unauthorized: User not found'
+            });
+        }
+
         req.session.regenerate(function (err) {
             if (err) {
                 return res.status(400).json({
@@ -58,7 +67,8 @@ const login = async (req, res) => {
                     message: 'Bad Request'
                 });
             }
-            req.session.user = req.body.email;
+
+            req.session.user = user; // Stocker les informations de l'utilisateur dans la session
 
             req.session.save(function (err) {
                 if (err) {
@@ -67,8 +77,15 @@ const login = async (req, res) => {
                         message: 'Bad Request'
                     });
                 }
-                // Redirection vers "/sports" après une authentification réussie
-                res.redirect('/sports');
+
+                // Redirection vers différentes pages en fonction du rôle de l'utilisateur
+                if (req.session.user.role === 'admin') {
+                    res.redirect('/sports');
+                } else if (req.session.user.role === 'public') {
+                    res.redirect('/public/sports');
+                } else {
+                    res.redirect('/'); // Rediriger vers une page par défaut si le rôle n'est pas défini
+                }
             });
         });
     } catch (error) {
@@ -79,6 +96,49 @@ const login = async (req, res) => {
         });
     }
 };
+
+
+
+
+
+// const login = async (req, res) => {
+//     try {
+//         const isValid = await ConnexionService.is_email_and_password_valid(req.body);
+//         if (!isValid) {
+//             return res.status(401).json({
+//                 status: 401,
+//                 message: 'Unauthorized: Incorrect email or password'
+//             });
+//         }
+
+//         req.session.regenerate(function (err) {
+//             if (err) {
+//                 return res.status(400).json({
+//                     status: 400,
+//                     message: 'Bad Request'
+//                 });
+//             }
+//             req.session.user = req.body.email;
+
+//             req.session.save(function (err) {
+//                 if (err) {
+//                     return res.status(400).json({
+//                         status: 400,
+//                         message: 'Bad Request'
+//                     });
+//                 }
+//                 // Redirection vers "/sports" après une authentification réussie
+//                 res.redirect('/sports');
+//             });
+//         });
+//     } catch (error) {
+//         console.error(error);
+//         return res.status(500).json({
+//             status: 500,
+//             message: 'Internal Server Error'
+//         });
+//     }
+// };
 
 
 

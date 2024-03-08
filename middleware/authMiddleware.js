@@ -1,17 +1,21 @@
-export function requireAuth(req, res, next) {
-    // Check if user is authenticated
-    if (req.isAuthenticated()) {
-        return next();
+export const isAdmin = (req, res, next) => {
+    if (req.session && req.session.user && req.session.user.role === 'admin') {
+        return next(); 
     } else {
-        res.redirect('/login'); // Redirect to login page if not authenticated
+        return res.status(403).json({
+            status: 403,
+            message: 'Forbidden: Only admins are allowed to access this resource'
+        });
     }
-}
+};
 
-export function requireAdmin(req, res, next) {
-    // Check if user is authenticated and is admin
-    if (req.isAuthenticated() && req.user.role === 'admin') {
-        return next();
+export const isPublic = (req, res, next) => {
+    if (req.session && req.session.user && req.session.user.role === 'public') {
+        return next(); 
     } else {
-        res.redirect('/public'); // Redirect to public page if not admin
+        return res.status(403).json({
+            status: 403,
+            message: 'Forbidden: Access restricted to users with public role'
+        });
     }
-}
+};

@@ -3,6 +3,7 @@ import express from 'express';
 import * as SportController from '../controller/sportController.js';
 import bodyParser from 'body-parser';
 import upload from '../middleware/fileUploadMiddleware.js';
+import { isPublic} from '../middleware/authMiddleware.js'
 
 const sportRouter = express.Router();
 
@@ -27,8 +28,8 @@ sportRouter.post('/sports/:id/delete', SportController.deleteSport);
 
 
 
-sportRouter.get('/public/sports', SportController.listSportsPublic);
-sportRouter.get('/public/sport/:id', SportController.getSportPublic);
+sportRouter.get('/public/sports', isPublic,SportController.listSportsPublic);
+sportRouter.get('/public/sport/:id', isPublic, SportController.getSportPublic);
 
 
 
