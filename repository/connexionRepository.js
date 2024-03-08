@@ -18,7 +18,7 @@ const connexionRepository = {
     return new Promise((resolve, reject) => {
         const { email, password } = data; 
         db_connection().then(db => {
-            db.query('SELECT COUNT(id) AS count FROM `jo-app`.users WHERE email = ? AND password = ?', [email, password], (err, results) => {
+            db.query('SELECT COUNT(id) AS count FROM `joapp`.users WHERE email = ? AND password = ?', [email, password], (err, results) => {
                 if (err) {
                     reject(err);
                 } else {
