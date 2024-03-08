@@ -1,0 +1,51 @@
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+h1 {
+  color: #4285f4;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+div {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+p {
+  margin: 0 0 10px 0;
+}
+
+strong {
+  color: #4285f4;
+}
+
+/* Additional styling for specific elements */
+p strong {
+  font-size: 1.2em; /* Increase font size for strong elements inside paragraphs */
+}
+
+/* Responsive design */
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.5em; /* Adjust font size for smaller screens */
+  }
+
+  div {
+    padding: 15px; /* Adjust padding for smaller screens */
+  }
+}
