@@ -56,6 +56,23 @@ const connexionRepository = {
       }).catch(error => reject(error));
     });
   },
-};
 
+getUserByEmail: (email) => {
+  return new Promise((resolve, reject) => {
+    db_connection().then(pool => {
+      pool.query('SELECT * FROM Users WHERE email = ?', [email], (err, results) => {
+        if (err) {
+          reject(err);
+        } else {
+          if (results.length > 0) {
+            resolve(results[0]); // Renvoyer le premier utilisateur trouvé avec cet email
+          } else {
+            resolve(null); // Aucun utilisateur trouvé avec cet email
+          }
+        }
+      });
+    }).catch(err => reject(err));
+  });
+}
+};
 export default connexionRepository;
