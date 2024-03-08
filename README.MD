@@ -12,7 +12,10 @@ Pour démarrer le projet, suivez ces étapes :
 
 npm install
 
-2. **Lancement du serveur de développement :**
+2. **Création du fichier .env.dev avec l'exemple donné dans .sample.dev 
+(NODE-ENV=dev)
+
+3. **Lancement du serveur de développement :**
 
 npm run dev
 
