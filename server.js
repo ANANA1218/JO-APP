@@ -9,6 +9,7 @@ import athleteRouter from './router/AthleteRoutes.js';
 import paysRouter from './router/paysRoutes.js';
 import session from "express-session";
 import connexionRouter from "./router/connexionRoutes.js";
+import app_router from './router/app_router.js';
 
 const app = express();
 const router = express.Router();
@@ -36,7 +37,7 @@ nunjuks.configure('app', {
 })
 
 
-
+ router.use(app_router);
  router.use(sportRouter);
  router.use(epreurveRouter);
  router.use(athleteRouter);
