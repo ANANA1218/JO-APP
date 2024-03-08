@@ -1,16 +1,16 @@
 
-INSERT INTO Sports (nom) VALUES ('Athlétisme');
-INSERT INTO Sports (nom) VALUES ('Natation');
-INSERT INTO Sports (nom) VALUES ('Gymnastique');
-INSERT INTO Sports (nom) VALUES ('Tennis de table');
-INSERT INTO Sports (nom) VALUES ('Basketball');
-INSERT INTO Sports (nom) VALUES ('Football');
-INSERT INTO Sports (nom) VALUES ('Cyclisme');
-INSERT INTO Sports (nom) VALUES ('Escalade');
-INSERT INTO Sports (nom) VALUES ('Judo');
-INSERT INTO Sports (nom) VALUES ('Volleyball');
-INSERT INTO Sports (nom) VALUES ('Boxe');
-INSERT INTO Sports (nom) VALUES ('Tir a l\'arc');
+INSERT INTO Sports (nom,photo) VALUES ('Athlétisme',"photo");
+INSERT INTO Sports (nom,photo) VALUES ('Natation',"photo");
+INSERT INTO Sports (nom,photo) VALUES ('Gymnastique',"photo");
+INSERT INTO Sports (nom,photo) VALUES ('Tennis de table',"photo");
+INSERT INTO Sports (nom,photo) VALUES ('Basketball',"photo");
+INSERT INTO Sports (nom,photo) VALUES ('Football',"photo");
+INSERT INTO Sports (nom,photo) VALUES ('Cyclisme',"photo");
+INSERT INTO Sports (nom,photo) VALUES ('Escalade',"photo");
+INSERT INTO Sports (nom,photo) VALUES ('Judo',"photo");
+INSERT INTO Sports (nom,photo) VALUES ('Volleyball',"photo");
+INSERT INTO Sports (nom,photo) VALUES ('Boxe',"photo");
+INSERT INTO Sports (nom,photo) VALUES ('Tir a l\'arc',"photo");
 
 INSERT INTO Epreuves (nom, sport_id) VALUES ('100 mètres', 1);
 INSERT INTO Epreuves (nom, sport_id) VALUES ('Marathon', 1);

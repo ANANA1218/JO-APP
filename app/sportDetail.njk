@@ -4,7 +4,11 @@
   <h1>Détails du Sport</h1>
   <div>
     <p><strong>Nom:</strong> {{ sport.nom }}</p>
-    <p><strong>Description:</strong></p>
-    
+    {% if sport.photo %}
+      <p><strong>Photo:</strong></p>
+      <img src="/images/{{ sport.photo }}" alt="Photo du sport">
+    {% else %}
+      <p>Aucune photo disponible</p>
+    {% endif %}
   </div>
 {% endblock %}
