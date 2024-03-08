@@ -1,12 +1,16 @@
 {% extends "base.njk" %}
 
 {% block content %}
-  <h1>Create a New Epreuve</h1>
+  <h1>Créer une nouvelle Epreuve</h1>
   <form action="/epreuves/create" method="post" enctype="application/x-www-form-urlencoded">
-    <label for="nom">Epreuve Name:</label>
+    <label for="nom">Nom de l'Epreuve:</label>
     <input type="text" id="nom" name="nom" required>
     <label for="sport_id">Sport ID:</label>
     <input type="text" id="sport_id" name="sport_id" required>
-    <button type="submit">Create Epreuve</button>
+    <button type="submit">Créer une nouvelle Epreuve</button>
   </form>
+{% endblock %}
+
+{% block styles %}
+  <link rel="stylesheet" type="text/css" href="/css/createEpreuve.css">
 {% endblock %}
