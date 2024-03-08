@@ -1,23 +1,26 @@
+DROP DATABASE IF EXISTS joapp;
 
-CREATE TABLE Sports (
+CREATE DATABASE joapp;
+
+CREATE TABLE joapp.Sports (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(255) NOT NULL
 );
 
 
-CREATE TABLE Epreuves (
+CREATE TABLE joapp.Epreuves (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(255) NOT NULL,
     sport_id INT,
     FOREIGN KEY (sport_id) REFERENCES Sports(id)
 );
 
-CREATE TABLE Medailles (
+CREATE TABLE joapp.Medailles (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE Athletes (
+CREATE TABLE joapp.Athletes (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(255) NULL,
     prenom VARCHAR(255) NULL,
@@ -27,7 +30,7 @@ CREATE TABLE Athletes (
     epreuve_id INT, FOREIGN KEY (epreuve_id) REFERENCES Epreuves(id)
 );
 
-CREATE TABLE Pays (
+CREATE TABLE joapp.Pays (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(255) NOT NULL,
     medaille_id INT,
@@ -36,7 +39,7 @@ CREATE TABLE Pays (
 );
 
 
-CREATE TABLE Users (
+CREATE TABLE joapp.Users (
     id INT PRIMARY KEY AUTO_INCREMENT,
 	email VARCHAR(255) NOT NULL,
     nom VARCHAR(255) NULL,
