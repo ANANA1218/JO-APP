@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
+    {% block styles %}
+        <link rel="stylesheet" type="text/css" href="/css/login.css">
+    {% endblock %}
 </head>
 <body>
+    <img src="/logo.png" alt="Logo" class="logo">
     <h1>Inscription</h1>
     <form action="/inscription/" method="POST">
         <input type="email" name="email" placeholder="Email" required>

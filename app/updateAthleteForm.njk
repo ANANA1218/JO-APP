@@ -1,7 +1,9 @@
 {% extends "base.njk" %}
 
 {% block content %}
+<div class="container">
   <h1>Update Athlete</h1>
+  
   <form action="/athletes/{{ athlete.id }}/update" method="POST">
     <label for="nom">Nom:</label>
     <input type="text" id="nom" name="nom" value="{{ athlete.nom }}" required>
@@ -15,6 +17,7 @@
     <input type="text" id="epreuve_id" name="epreuve_id" value="{{ athlete.epreuve_id }}" required>
     <button type="submit">Update</button>
   </form>
+</div>
 {% endblock %}
 
 {% block styles %}
