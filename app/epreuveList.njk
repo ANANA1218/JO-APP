@@ -7,7 +7,7 @@
       {% for epreuve in epreuves %}
         <li>
           <a href="/epreuve/{{epreuve.id }}">{{ epreuve.nom }}</a>
-          <form action="/sports/{{ sport.id }}/update" method="GET">
+          <form action="/epreuves/{{ epreuve.id }}/update" method="GET">
             <button class="update-btn" type="submit">Update</button>
           </form>
           <form action="/epreuves/{{ epreuve.id }}/delete" method="POST">
