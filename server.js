@@ -7,10 +7,17 @@ import epreurveRouter from './router/EpreuveRoutes.js';
 import bodyParser from 'body-parser';
 import athleteRouter from './router/AthleteRoutes.js';
 import paysRouter from './router/paysRoutes.js';
-
+import session from "express-session";
+import connexionRouter from "./router/connexionRoutes.js";
 
 const app = express();
 const router = express.Router();
+
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true
+}));
 
 
 app.use(router);
@@ -34,7 +41,7 @@ nunjuks.configure('app', {
  router.use(epreurveRouter);
  router.use(athleteRouter);
  router.use(paysRouter);
-
+ router.use(connexionRouter)
 
 
 const server = http.createServer(app);
