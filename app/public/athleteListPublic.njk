@@ -1,16 +1,19 @@
 {% extends "base.njk" %}
 
 {% block content %}
-  <h1>List of Athletes</h1>
-  <ul>
-    {% for athlete in athletes %}
-      <li>
-        <a href="/athlete/{{ athlete.id }}">{{ athlete.nom }} {{ athlete.prenom }}</a>
-      </li>
-    {% endfor %}
-  </ul>
+  <div class="container">
+    <h1>List of Athletes</h1>
+    <ul>
+      {% for athlete in athletes %}
+        <li>
+          <a href="/athlete/{{ athlete.id }}">{{ athlete.nom }} {{ athlete.prenom }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
 {% endblock %}
 
 {% block styles %}
   <link rel="stylesheet" type="text/css" href="/css/athleteList.css">
+  <link rel="stylesheet" type="text/css" href="/css/header.css">
 {% endblock %}

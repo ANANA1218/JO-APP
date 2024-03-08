@@ -1,3 +1,4 @@
+/* athleteList.css */
 
 body {
     font-family: 'Arial', sans-serif;
@@ -6,25 +7,25 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Helvetica Neue', sans-serif;
-  }
-  
-  .container {
+}
+
+.container {
     width: 80%;
     margin: 0 auto;
-  }
-  
-  h1 {
+}
+
+h1 {
     color: #4285f4;
     font-size: 2em;
     margin-bottom: 20px;
-  }
-  
-  ul {
+}
+
+ul {
     list-style: none;
     padding: 0;
-  }
-  
-  li {
+}
+
+li {
     background-color: #fff;
     border: 1px solid #ddd;
     margin-bottom: 10px;
@@ -34,37 +35,46 @@ body {
     align-items: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
-  }
-  
-  li:hover {
+}
+
+li:hover {
     transform: scale(1.05); /* On hover, slightly increase the size of the list item */
-  }
-  
-  a {
+}
+
+a {
     text-decoration: none;
     color: #4285f4;
     font-size: 1.2em;
-  }
-  
-  a:hover {
+}
+
+a:hover {
     text-decoration: underline;
-  }
-  
-  button {
-    background-color: #d9534f;
+}
+
+button {
+    background-color: #f59a96d6;
     color: #fff;
     border: none;
     padding: 8px 15px;
     cursor: pointer;
     font-size: 0.8em;
     transition: background-color 0.3s ease-in-out;
-  }
-  
-  button:hover {
+}
+
+button:hover {
     background-color: #c9302c;
-  }
-  
-  a[href="/athletes/create"] {
+}
+
+/* Ajoutez ces styles pour le bouton "Update" */
+button.update-btn {
+    background-color: #c6e2c7;
+}
+
+button.update-btn:hover {
+    background-color: #6a8a6c;
+}
+
+a[href="/athletes/create"] {
     display: block;
     margin-top: 20px;
     text-align: center;
@@ -73,9 +83,8 @@ body {
     text-decoration: none;
     padding: 10px 20px;
     font-size: 1.2em;
-  }
-  
-  a[href="/athletes/create"]:hover {
+}
+
+a[href="/athletes/create"]:hover {
     background-color: #0043ca;
-  }
-  
+}

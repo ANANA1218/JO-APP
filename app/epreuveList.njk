@@ -1,20 +1,23 @@
 {% extends "base.njk" %}
 
 {% block content %}
-  <h1>List of Epreuves</h1>
-  <ul>
-    {% for epreuve in epreuves %}
-      <li>
-        <a href="/epreuve/{{epreuve.id }}">{{ epreuve.nom }}</a>
-       <a href="/epreuves/{{ epreuve.id }}/update">Update</a>
-         <form action="/epreuves/{{ epreuve.id }}/delete" method="POST">
-          <button type="submit">Delete</button>
-        </form>
-
-      </li>
-    {% endfor %}
-  </ul>
-     <a href="/epreuves/create">Ajouter une epreuve</a>
+  <div class="container">
+    <h1>List of Epreuves</h1>
+    <ul>
+      {% for epreuve in epreuves %}
+        <li>
+          <a href="/epreuve/{{epreuve.id }}">{{ epreuve.nom }}</a>
+          <form action="/sports/{{ sport.id }}/update" method="GET">
+            <button class="update-btn" type="submit">Update</button>
+          </form>
+          <form action="/epreuves/{{ epreuve.id }}/delete" method="POST">
+            <button type="submit">Delete</button>
+          </form>
+        </li>
+      {% endfor %}
+    </ul>
+    <a href="/epreuves/create">Ajouter une epreuve</a>
+  </div>
 {% endblock %}
 
 {% block styles %}

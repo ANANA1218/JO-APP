@@ -7,7 +7,10 @@
         {% for sport in sports %}
           <li>
             <a href="/sport/{{ sport.id }}">{{ sport.nom }}</a>
-            <a href="/sports/{{ sport.id }}/update">Update</a>
+            <form action="/sports/{{ sport.id }}/update" method="GET">
+                 <button class="update-btn" type="submit">Update</button>
+            </form>
+
             <form action="/sports/{{ sport.id }}/delete" method="POST">
               <button type="submit">Delete</button>
             </form>
@@ -18,9 +21,7 @@
   </div>
 {% endblock %}
 
-
 {% block styles %}
-<link rel="stylesheet" type="text/css" href="/css/athleteList.css">
- <link rel="stylesheet" type="text/css" href="/css/header.css">
-
+  <link rel="stylesheet" type="text/css" href="/css/athleteList.css">
+  <link rel="stylesheet" type="text/css" href="/css/header.css">
 {% endblock %}

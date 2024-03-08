@@ -25,23 +25,39 @@ export const getCreateSportForm = (req, res) => {
 };
 
 
+
 export const createSport = (req, res) => {
- 
-  const { nom } = req.body; 
- console.log(req.body); 
-  const newSport = { nom };
-  console.log(newSport); 
+  const { nom } = req.body;
+
+  const newSport = { nom, photo: req.file ? req.file.filename : null };
 
   SportService.createSport(newSport)
     .then(() => {
       res.redirect('/sports');
     })
     .catch((err) => {
-  
       console.error(err);
       res.status(500).send('Erreur lors de la création du sport.');
     });
 };
+
+// export const createSport = (req, res) => {
+ 
+//   const { nom } = req.body; 
+//  console.log(req.body); 
+//   const newSport = { nom };
+//   console.log(newSport); 
+
+//   SportService.createSport(newSport)
+//     .then(() => {
+//       res.redirect('/sports');
+//     })
+//     .catch((err) => {
+  
+//       console.error(err);
+//       res.status(500).send('Erreur lors de la création du sport.');
+//     });
+// };
 
 
 
