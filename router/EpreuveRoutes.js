@@ -2,6 +2,7 @@
 import express from 'express';
 import * as EpreuveController from '../controller/epreuveController.js';
 import bodyParser from 'body-parser';
+import { isPublic} from '../middleware/authMiddleware.js'
 
 const epreurveRouter = express.Router();
 
@@ -26,7 +27,7 @@ epreurveRouter.post('/epreuves/:id/update', EpreuveController.updateEpreuve);
 epreurveRouter.post('/epreuves/:id/delete', EpreuveController.deleteEpreuve);
 
 
-epreurveRouter.get('/public/epreuves', EpreuveController.listEpreuvesPublic);
-epreurveRouter.get('/public/epreuve/:id', EpreuveController.getEpreuvePublic);
+epreurveRouter.get('/public/epreuves',isPublic, EpreuveController.listEpreuvesPublic);
+epreurveRouter.get('/public/epreuve/:id', isPublic,EpreuveController.getEpreuvePublic);
 
 export default epreurveRouter;

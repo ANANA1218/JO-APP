@@ -2,6 +2,7 @@
 import express from 'express';
 import * as AthleteController from '../controller/athleteController.js';
 import bodyParser from 'body-parser';
+import { isPublic} from '../middleware/authMiddleware.js'
 
 const athleteRouter = express.Router();
 
@@ -27,8 +28,8 @@ athleteRouter.post('/athletes/:id/delete', AthleteController.deleteAthlete);
 athleteRouter.get('/athlete', AthleteController.listAthletesMedail);
 
 
-athleteRouter.get('/public/athletes', AthleteController.listAthletesPublic);
-athleteRouter.get('/public/athlete/:id', AthleteController.getAthletePublic)
-athleteRouter.get('/public/athlete', AthleteController.listAthletesMedailPublic);
+athleteRouter.get('/public/athletes',isPublic, AthleteController.listAthletesPublic);
+athleteRouter.get('/public/athlete/:id',isPublic, AthleteController.getAthletePublic)
+athleteRouter.get('/public/athlete',isPublic, AthleteController.listAthletesMedailPublic);
 
 export default athleteRouter;
